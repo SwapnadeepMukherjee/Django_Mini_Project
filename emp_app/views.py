@@ -65,7 +65,7 @@ def filter_emp(request):
         role = request.POST['role']
         emps = Employee.objects.all()
         if name:
-            emps = emps.filter((first_name__icontains = name) | Q(last_name__icontains = name))
+            emps = emps.filter(first_name__icontains = name) | Q(last_name__icontains = name)
         if dept:
             emps = emps.filter(dept__name__icontains = dept)
         if role:
